@@ -61,6 +61,8 @@ The controller is written using parameter-based state encoding (without enum) to
 
 \- Outputs depend only on the current state
 
+--
+
 \### FSM States
 
 The controller operates with three states:
@@ -77,7 +79,7 @@ RED → GREEN → YELLOW → RED
 
 
 
----
+--
 
 
 
@@ -94,6 +96,8 @@ parameter s_green  = 2'b01;
 parameter s_yellow = 2'b10;
 
 ```
+
+--
 
 \##Timing Control
 
@@ -119,7 +123,7 @@ YELLOW_TIME = 2 seconds
 
 This timing control models real traffic signal delays and ensures stable transitions.
 
-
+--
 
 \##Minimum Green Time
 
@@ -131,7 +135,7 @@ This timing control models real traffic signal delays and ensures stable transit
 
 -This prevents unsafe immediate transitions after vehicles begin moving.
 
-
+--
 
 \##Pedestrian Button Handling
 
@@ -145,7 +149,7 @@ This timing control models real traffic signal delays and ensures stable transit
 
 \-The button requests a transition but does not force an immediate change.
 
-
+--
 
 \##WALK / DON’T WALK Signals
 
@@ -157,7 +161,7 @@ This timing control models real traffic signal delays and ensures stable transit
 
 -No additional FSM states are introduced for pedestrian control.
 
-
+--
 
 \##Emergency Vehicle Priority
 
@@ -186,6 +190,7 @@ This timing control models real traffic signal delays and ensures stable transit
 \###Author
 
 Ritesh Kumar
+
 
 
 
