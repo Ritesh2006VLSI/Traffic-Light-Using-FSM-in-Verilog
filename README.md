@@ -173,7 +173,7 @@ This timing control models real traffic signal delays and ensures stable transit
 
 -This ensures safe and predictable behavior during emergency scenarios.
 
-
+---
 
 \###Tools Used
 
@@ -181,11 +181,12 @@ This timing control models real traffic signal delays and ensures stable transit
 
 -Vivado Simulator
 
-
+---
 
 \###Author
 
 Ritesh Kumar
+
 
 
 
