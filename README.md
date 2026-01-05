@@ -1,8 +1,8 @@
-\# Traffic Light Controller using FSM in Verilog
+# Traffic Light Controller using FSM in Verilog
 
 
 
-\## Overview
+## Overview
 
 This project implements a realistic traffic light controller using Finite State Machine (FSM) principles in Verilog HDL.  
 The design closely models real-world traffic signal behavior by incorporating timing control, pedestrian handling, minimum green time enforcement, and emergency vehicle priority.
@@ -10,68 +10,68 @@ The controller is written using parameter-based state encoding (without enum) to
 
 ---
 
-\## Objectives
+## Objectives
 
-\- Design a traffic light controller using FSM concepts
+- Design a traffic light controller using FSM concepts
 
-\- Implement realistic timing behavior using counters
+- Implement realistic timing behavior using counters
 
-\- Handle pedestrian requests safely
+- Handle pedestrian requests safely
 
-\- Provide emergency vehicle priority
+- Provide emergency vehicle priority
 
-\- Follow industry-style, synthesizable Verilog coding practices
-
----
-
-
-\## Features
-
-\- Moore FSM-based traffic light controller
-
-\- Parameterized state encoding (no enum)
-
-\- Counter-based delay for each traffic signal
-
-\- Different timing for RED, GREEN, and YELLOW
-
-\- Minimum green time for vehicle safety
-
-\- Pedestrian request button
-
-\- WALK / DON’T WALK pedestrian signals
-
-\- Emergency GREEN override
-
-\- Fail-safe default behavior for invalid states
-
-
+- Follow industry-style, synthesizable Verilog coding practices
 
 ---
 
 
+## Features
 
-\## FSM Description
+- Moore FSM-based traffic light controller
+
+- Parameterized state encoding (no enum)
+
+- Counter-based delay for each traffic signal
+
+- Different timing for RED, GREEN, and YELLOW
+
+- Minimum green time for vehicle safety
+
+- Pedestrian request button
+
+- WALK / DON’T WALK pedestrian signals
+
+- Emergency GREEN override
+
+- Fail-safe default behavior for invalid states
 
 
 
-\### FSM Type
+---
 
-\- Moore Machine
 
-\- Outputs depend only on the current state
+
+## FSM Description
+
+
+
+### FSM Type
+
+- Moore Machine
+
+- Outputs depend only on the current state
 
 --
 
-\### FSM States
+### FSM States
 
 The controller operates with three states:
 
-\- RED
+- RED
 
-\- GREEN
+- GREEN
 
-\- YELLOW
+- YELLOW
 
 State transition sequence:
 
@@ -83,7 +83,7 @@ RED → GREEN → YELLOW → RED
 
 
 
-\## State Encoding
+## State Encoding
 
 States are encoded using Verilog parameters:
 
@@ -99,15 +99,15 @@ parameter s_yellow = 2'b10;
 
 --
 
-\##Timing Control
+## Timing Control
 
--Realistic timing behavior is achieved using a counter-based approach.
+- Realistic timing behavior is achieved using a counter-based approach.
 
--Each FSM state is held for a predefined duration
+- Each FSM state is held for a predefined duration
 
--The counter increments while the FSM remains in the same state
+- The counter increments while the FSM remains in the same state
 
--The counter resets automatically on every state transition
+- The counter resets automatically on every state transition
 
 Example timing configuration:
 
@@ -125,69 +125,69 @@ This timing control models real traffic signal delays and ensures stable transit
 
 --
 
-\##Minimum Green Time
+## Minimum Green Time
 
--To ensure safe traffic operation
+- To ensure safe traffic operation
 
--The GREEN signal remains active for a minimum duration
+- The GREEN signal remains active for a minimum duration
 
--Pedestrian requests are ignored until the minimum green time is satisfied
+- Pedestrian requests are ignored until the minimum green time is satisfied
 
--This prevents unsafe immediate transitions after vehicles begin moving.
-
---
-
-\##Pedestrian Button Handling
-
--A pedestrian request button allows users to request a crossing
-
--Requests are evaluated only after minimum green time
-
--FSM transitions follow: GREEN → YELLOW → RED
-
-\-Pedestrians are allowed to cross during RED
-
-\-The button requests a transition but does not force an immediate change.
+- This prevents unsafe immediate transitions after vehicles begin moving.
 
 --
 
-\##WALK / DON’T WALK Signals
+## Pedestrian Button Handling
 
--Pedestrian signals are derived directly from vehicle signal states
+- A pedestrian request button allows users to request a crossing
 
--WALK signal is active during RED
+- Requests are evaluated only after minimum green time
 
--DON’T WALK signal is active during GREEN, YELLOW, and emergency conditions
+- FSM transitions follow: GREEN → YELLOW → RED
 
--No additional FSM states are introduced for pedestrian control.
+- Pedestrians are allowed to cross during RED
+
+- The button requests a transition but does not force an immediate change.
 
 --
 
-\##Emergency Vehicle Priority
+## WALK / DON’T WALK Signals
 
--An emergency input provides highest priority operation
+- Pedestrian signals are derived directly from vehicle signal states
 
--Forces GREEN output immediately
+- WALK signal is active during RED
 
--Overrides normal FSM output behavior
+- DON’T WALK signal is active during GREEN, YELLOW, and emergency conditions
 
--FSM state and internal timing logic remain unchanged
+- No additional FSM states are introduced for pedestrian control.
 
--Normal operation resumes once the emergency signal is deasserted
+--
 
--This ensures safe and predictable behavior during emergency scenarios.
+## Emergency Vehicle Priority
+
+- An emergency input provides highest priority operation
+
+- Forces GREEN output immediately
+
+- Overrides normal FSM output behavior
+
+- FSM state and internal timing logic remain unchanged
+
+- Normal operation resumes once the emergency signal is deasserted
+
+- This ensures safe and predictable behavior during emergency scenarios.
 
 ---
 
-\###Tools Used
+### Tools Used
 
--Verilog HDL
+- Verilog HDL
 
--Vivado Simulator
+- Vivado Simulator
 
 ---
 
-\###Author
+### Author
 
 Ritesh Kumar
 
